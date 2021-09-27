@@ -68,6 +68,9 @@ border-right: 1px solid whitesmoke;
 height: 100vh;
 min-width: 300px;
 max-width: 350px;
+@media  only screen  and (max-width:500px){
+    max-width:100% ;
+} 
 overflow-y:scroll ;
 ::-webkit-scrollbar{
     display: none;

@@ -40,7 +40,7 @@ const ChatScreen = ({ chat, messages }) => {
                     ...message.data(),
                     timestamp: message.data().timestamp?.toDate().getTime(),
                 }}
-                endOfmessageRef={endOfmessageRef}
+             
                  />
                 )})
             }else{
@@ -71,6 +71,7 @@ const ChatScreen = ({ chat, messages }) => {
             lastseen:firebase.firestore.FieldValue.serverTimestamp(),
 
         },{merge:true})
+        scrollToBottom();
          const t=  firebase.firestore.FieldValue.serverTimestamp()
         db.collection('chats').doc(router.query.id).collection('messages').add({
             timestamp:t,
@@ -79,8 +80,8 @@ const ChatScreen = ({ chat, messages }) => {
             photoURL:user.photoURL ,           
 
         })
+        
         setInput('');
-        scrollToBottom();
     }
     const moveBackToHomeScreen = () => {
         router.push('/')

@@ -3,20 +3,13 @@ import styled from 'styled-components'
 import {auth} from './../firebase'
 import {useAuthState} from 'react-firebase-hooks/auth'
 import moment from 'moment'
-const Message = ({user,message,endOfmessageRef}) => {
+const Message = ({user,message}) => {
     const [logenInUser]=useAuthState(auth)
     // console.log(user)
     const TypeOfmessage=(user===logenInUser.email?Sender :reciever);
-    const scrollToBottom=()=>{
-        endOfmessageRef.current.scrollIntoView({
-            behavior:"smooth",
-            block:"start",
-        })
-    }
+  
 
-    if(message.timestamp==null){
-      
-    }
+  
     return (
         <Container>
             <TypeOfmessage>{message.message}
