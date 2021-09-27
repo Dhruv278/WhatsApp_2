@@ -190,7 +190,7 @@ min-height: 90vh;
 
 
 const EndOfMessage = styled.div`
-margin-bottom:70px;
+margin-bottom:50px;
 `;
 
 const InputContainer = styled.div`
