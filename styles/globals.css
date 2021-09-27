@@ -14,3 +14,29 @@ a {
 * {
   box-sizing: border-box;
 }
+.login_image{
+  height: 200px;
+width: 200px;
+margin-bottom: 50px;
+}
+@media only screen and (max-width: 300px) {
+  .login_image{
+  height: 130px;
+  width:130px;
+  }
+}
+
+.back{
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 400px) {
+ .userAvatar{
+   margin-left: 8px;
+   margin-bottom: 2px;
+ } 
+ .recipientEmail{
+   font-size: 15px;
+ }
+}
