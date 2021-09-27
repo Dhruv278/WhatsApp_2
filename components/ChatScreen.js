@@ -201,7 +201,9 @@ position: sticky;
 bottom: 0;
 background-color: white;
 z-index: 100;
-
+@media only screen and (max-width: 500px) {
+    padding-bottom: 20px;
+}
 `;
 
 const Input = styled.input`

@@ -41,8 +41,3 @@ margin-bottom: 50px;
  }
 }
 
-@media only screen and (max-width:500px){
-  .InputContainer{
-    padding-bottom: 40px;
-  }
-}

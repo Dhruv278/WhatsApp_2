@@ -6,8 +6,21 @@ import ChatScreen from '../../components/ChatScreen'
 import { auth, db } from '../../firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import getRecipientEmail from '../../utils/getRecipientEmail'
+import { useEffect, useRef } from 'react'
 const Chat = ({messages,chat}) => {
+    useEffect(() => {
+       console.log('hello')
+       scrollToBottom()
+    }, [])
     const [user]=useAuthState(auth);
+    const scrollBotom=useRef(null)
+    const scrollToBottom=()=>{
+        scrollBotom.current.scrollIntoView({
+            behavior:"smooth",
+            block:"start",
+        })
+    }
+ 
     // console.log(chat)
     return (
         <Container>
@@ -18,6 +31,7 @@ const Chat = ({messages,chat}) => {
             {window.innerWidth>500 ? <Sidebar />:null}
             <ChatContainer>
                 <ChatScreen chat={chat} messages={messages}/>
+                <div ref={scrollBotom}></div>
             </ChatContainer>
         </Container>
     )
@@ -27,7 +41,7 @@ export default Chat
 
 
 export async function getServerSideProps(context){
-    // console.log("working1")
+    console.log("working1")
  const ref=db.collection('chats').doc(context.query.id);
 
  const messagesRes=await ref
@@ -48,6 +62,7 @@ export async function getServerSideProps(context){
           ...chatRes.data()
               }       
             //   console.log(messages,chat)
+           
       return {
           props:{
               messages:JSON.stringify(messages),
