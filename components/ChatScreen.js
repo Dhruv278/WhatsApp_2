@@ -130,7 +130,7 @@ const ChatScreen = ({ chat, messages }) => {
                 {showMessages()}
                 <EndOfMessage ref={endOfmessageRef}/>
             </MessageContainer>
-            <InputContainer>
+            <InputContainer className="InputContainer">
                 <InsertEmoticon />
                 <div style={{flex:"1",backgroundColor:"whitesmoke",borderRadius:'10px' ,display:'flex'}}>
                 <Input value={input} onChange={e=>setInput(e.target.value)}  onKeyPress={event => {
